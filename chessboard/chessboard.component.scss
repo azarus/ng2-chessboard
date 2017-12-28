@@ -1,0 +1,252 @@
+// Fills the parent container
+:host {
+	display:block;
+	width:100%;
+	height:100%;
+	touch-action: none;
+}
+
+// Positions in the middle
+.board-container
+{
+
+	display:block;
+	position:relative;
+	width:100%;
+	height:100%;
+	margin:auto;
+	background:#0f0;
+	
+}
+
+.chessboard
+{
+	touch-action: none;
+		
+	position: absolute;
+	width:100%;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	
+	background: #f00;
+}
+
+.square
+{
+	touch-action: none;
+		
+	cursor:pointer;
+	user-select: none;
+	float:left;
+	width:12.5%;
+	height:12.5%;
+	background:#ff0;
+
+	position: relative;
+	display:block;
+
+	&:hover, &.hover {
+		-webkit-box-shadow: inset 0 0 1px 1px #000;
+		-moz-box-shadow: inset 0 0 1px 1px #000;
+		box-shadow: inset 0 0 1px 1px #000;
+	}
+	
+	.timeout-overlay
+	{
+		&.expired
+		{
+			background-color:rgba(0, 255, 0, 0.5);
+		}
+		&.active {
+			background-color:rgba(255, 0, 0, 0.5);
+		}
+		
+		transition: background-color 5000ms linear;
+		position:absolute;
+		display:block;
+		width:100%;
+		height:100%;
+
+		z-index:10;
+		
+		
+	}
+
+	&.dark{
+		background-color: #b58863;
+		color: #f0d9b5;
+	}
+
+	&.light{
+		background-color: #f0d9b5;
+		color: #b58863;
+	}
+	
+	// Highlights on squares
+	&.move
+	{
+		-webkit-box-shadow: inset 0 0 3px 3px #eef21f;
+		-moz-box-shadow: inset 0 0 3px 3px #eef21f;
+		box-shadow: inset 0 0 3px 3px #eef21f;
+	}
+
+	&.dot
+	{
+		&::after
+		{
+			content: "";
+			display:block;
+			position: absolute;
+			border-radius: 100%;
+			width:40%;
+			height:40%;
+
+			top:30%;
+			left:30%;
+			right:30%;
+			bottom:30%;
+			z-index: 200;
+			background:rgba(60, 60, 60, 0.3);
+		}
+
+		.piece
+		{
+			-webkit-box-shadow: inset 0 0 3px 3px red;
+			-moz-box-shadow: inset 0 0 3px 3px red;
+			box-shadow: inset 0 0 3px 3px red;
+		}
+	}
+	&.note
+	{
+		-webkit-box-shadow: inset 0 0 3px 3px #fff;
+		-moz-box-shadow: inset 0 0 3px 3px #fff;
+		box-shadow: inset 0 0 3px 3px #fff;
+	}
+
+	&.activeFrom
+	{
+		-webkit-box-shadow: inset 0 0 3px 3px #303030;
+		-moz-box-shadow: inset 0 0 3px 3px #303030;
+		box-shadow: inset 0 0 3px 3px #303030;
+	}
+
+	&.activeTo
+	{
+		-webkit-box-shadow: inset 0 0 3px 3px #335533;
+		-moz-box-shadow: inset 0 0 3px 3px #335533;
+		box-shadow: inset 0 0 3px 3px #335533;
+	}
+
+	&.black.note{
+		background-color: #f5a893;
+	}
+
+	&.white.note{
+		background-color: #f3fcab;
+	}
+
+	&.warn
+	{
+		-webkit-box-shadow: inset 0 0 3px 3px red;
+		-moz-box-shadow: inset 0 0 3px 3px red;
+		box-shadow: inset 0 0 3px 3px red;
+	}
+
+	.indicator
+	{
+		position: absolute;
+		pointer-events: none;
+		
+		width:100%;
+		margin:0;
+		padding:0;
+
+		display:block;
+		padding:2px;
+
+
+		&.horizontal
+		{
+			bottom:0;
+			right:0;
+			text-align: right;
+		}
+
+		&.vertical
+		{
+			top:0;
+			left:0;
+			text-align: left;
+
+		}
+	}
+
+	.piece
+	{
+		touch-action: none;
+
+
+		position: relative;
+		z-index: 100;
+		
+		width:100%;
+		height:100%;
+	}
+
+}
+
+.promotion-container
+{
+	position:absolute;
+	//display:none;
+	width:100%;
+	height:100%;
+
+    top: 0;
+    left: 0;
+
+	background-color:rgba(0, 0, 0, 0.6);
+
+	.promotion-dialog {
+		//display:none;
+		position: relative;
+		background-color:rgba(255, 255, 255, 0.6);
+
+		width:30%;
+		height:30%;
+
+		top:35%;
+		left:35%;
+		right:35%;
+		bottom:35%;
+
+		.promote {
+			cursor:pointer;
+			width:50%;
+			height:50%;
+			float:left;
+		}
+		
+		.promote:hover {
+			-webkit-box-shadow: inset 0 0 3px 3px #f4a86b;
+			-moz-box-shadow: inset 0 0 3px 3px #f4a86b;
+			box-shadow: inset 0 0 3px 3px #f4a86b;
+		}
+	}
+
+	.victory-dialog {
+		display:none;
+		position: relative;
+		background-color:rgba(255, 255, 255, 0.9);
+		color:#000;
+		width:80%;
+		height:90%;
+		text-align:center;
+		top:0%;
+		left:10%;
+		right:10%;
+		bottom:5%;
+	}
+}

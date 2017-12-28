@@ -1,0 +1,25 @@
+<div class="board-container" #boardContainer>
+	<div class="chessboard" #chessboard oncontextmenu="return false;"></div>
+	
+	<!--<div class="promotion-container" #promotionContainer (click)="cancelPromotion(piece)">
+		<div class="promotion-dialog">
+			<ng-container *ngFor="let piece of ['Q', 'R', 'B', 'N']">
+				<img src="{{themePath}}w{{piece}}.png" class="piece promote" (click)="selectPromotion(piece)" alt="{{piece}}" oncontextmenu="return false;"/>
+			</ng-container>
+		</div>
+		<div class="victory-dialog">
+			<ng-content select="[victory]"></ng-content>
+		</div>
+
+	</div>-->
+</div>
+
+
+
+<!--<div class="pieces" *ngIf="showEditor">
+	<ng-container *ngFor="let color of ['w', 'b']">
+		<ng-container *ngFor="let piece of PIECES">
+			<img src="{{themeUrl}}{{color}}{{piece}}.png" class="piece spare" alt="{{color}}-{{piece}}" draggable='true' oncontextmenu="return false;"/>
+		</ng-container>
+	</ng-container>
+</div>-->
