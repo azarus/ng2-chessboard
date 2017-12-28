@@ -1,6 +1,9 @@
 # ng2-chessboard
 Mobile Friendly Chessboard Component for Angular2 and above,
 
+
+![demo](https://i.imgur.com/66fHqFv.jpg)
+
 **Supports Drag & Drop both in browser and on mobile.**
 
 
